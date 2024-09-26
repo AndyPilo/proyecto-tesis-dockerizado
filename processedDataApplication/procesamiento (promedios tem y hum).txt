@@ -1,0 +1,137 @@
+/**********************************************************************          SensorStreamsProcesing           **************************************************//
+
+package com.cuaje.edu.cu;
+
+import data.com.cujae.edu.cu.SensorData;
+import com.cuaje.edu.cu.data.SensorDataProcessed;
+import data.com.cujae.edu.cu.SensorStats;
+import serde.com.cujae.edu.cu.CustomSerdes;
+import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.common.utils.Bytes;
+import org.apache.kafka.streams.KafkaStreams;
+import org.apache.kafka.streams.KeyValue;
+import org.apache.kafka.streams.StreamsBuilder;
+import org.apache.kafka.streams.StreamsConfig;
+import org.apache.kafka.streams.kstream.*;
+import org.apache.kafka.streams.state.WindowStore;
+
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+public class SensorStreamsProcessed {
+
+    public static void main(String[] args) {
+
+        Properties properties = new Properties();
+        properties.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        properties.put(StreamsConfig.APPLICATION_ID_CONFIG, "processed-application");
+
+        String inputTopic = "sensor_data";
+        String outputTopic = "processed_data";
+
+        Duration windowSize = Duration.ofSeconds(2L);
+        Duration retentionPeriod = Duration.ofSeconds(2L);
+
+        final Materialized<String, SensorStats, WindowStore<Bytes, byte[]>> store = Materialized.<String, SensorStats, WindowStore<Bytes, byte[]>>as("eventstore")
+                .withKeySerde(Serdes.String())
+                .withValueSerde(CustomSerdes.sensorStatsSerde())
+                .withRetention(retentionPeriod);
+
+        StreamsBuilder builder = new StreamsBuilder();
+
+        KStream<String, SensorData> stream = builder.stream(inputTopic, Consumed.with(Serdes.String(), CustomSerdes.sensorDataSerde()));
+
+        stream.groupByKey()
+                .windowedBy(TimeWindows.ofSizeWithNoGrace(windowSize))
+                .aggregate(
+                        () -> new SensorStats(0.0, 0.0, 0),
+                        (key, value, aggregate) -> {
+
+                            aggregate.setTotalTemperature(aggregate.getTotalTemperature() + value.getTemperature());
+                            aggregate.setTotalHumidity(aggregate.getTotalHumidity() + value.getHumidity());
+                            aggregate.setCount(aggregate.getCount() + 1);
+                            System.out.println(aggregate.getCount());
+                            return aggregate;
+
+                        }, store)
+                .toStream()
+                .map((wk, stats) -> {
+                    long startTime = System.currentTimeMillis();
+
+                    SensorDataProcessed result = new SensorDataProcessed("SB01", stats.getAverageTemperature(),
+                            stats.getAverageHumidity(),
+                            Instant.now().getEpochSecond());
+
+                    long endTime = System.currentTimeMillis();
+                    System.out.println("key :" + wk.key() + " value :" + result.getTimestamp() + " processing time: " + (endTime - startTime) + "ms");
+
+                    return KeyValue.pair(wk.key(), result);
+                })
+                .peek((key, value) -> System.out.println("key :" + key + " temAve :" + value.getTemAve() +
+                        " humAve :" + value.getHumAve()))
+                .to("processed_data", Produced.with(Serdes.String(), CustomSerdes.sensorDataProcessedSerde()));
+
+
+        KafkaStreams kafkaStreams = new KafkaStreams(builder.build(), properties);
+        kafkaStreams.start();
+    }
+
+}
+
+/**********************************************************************          Sensor Data           **************************************************//
+
+package com.cuaje.edu.cu.data;
+
+public class SensorData {
+
+    private String id;
+    private double temperature;
+    private double humidity;
+    private Long timestamp;
+
+    public SensorData(String id, double temperature, double humidity, Long timestamp) {
+        this.id = id;
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.timestamp = timestamp;
+    }
+
+    public SensorData(){
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
+    public double getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(double humidity) {
+        this.humidity = humidity;
+    }
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
+}

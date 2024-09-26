@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.cuaje.edu.cu.AppTest" time="0.087" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\Escuela\tesis\Tesis\aplicacion\proyecto\processedDataApplication\target\test-classes;D:\Escuela\tesis\Tesis\aplicacion\proyecto\processedDataApplication\target\classes;C:\Users\AndyPilo\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar;C:\Users\AndyPilo\.m2\repository\com\google\code\gson\gson\2.11.0\gson-2.11.0.jar;C:\Users\AndyPilo\.m2\repository\com\google\errorprone\error_prone_annotations\2.27.0\error_prone_annotations-2.27.0.jar;C:\Users\AndyPilo\.m2\repository\org\apache\kafka\kafka-streams\3.7.0\kafka-streams-3.7.0.jar;C:\Users\AndyPilo\.m2\repository\org\apache\kafka\kafka-clients\3.7.0\kafka-clients-3.7.0.jar;C:\Users\AndyPilo\.m2\repository\com\github\luben\zstd-jni\1.5.5-6\zstd-jni-1.5.5-6.jar;C:\Users\AndyPilo\.m2\repository\org\lz4\lz4-java\1.8.0\lz4-java-1.8.0.jar;C:\Users\AndyPilo\.m2\repository\org\xerial\snappy\snappy-java\1.1.10.5\snappy-java-1.1.10.5.jar;C:\Users\AndyPilo\.m2\repository\org\rocksdb\rocksdbjni\7.9.2\rocksdbjni-7.9.2.jar;C:\Users\AndyPilo\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\AndyPilo\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.16.0\jackson-annotations-2.16.0.jar;C:\Users\AndyPilo\.m2\repository\org\slf4j\slf4j-log4j12\1.7.30\slf4j-log4j12-1.7.30.jar;C:\Users\AndyPilo\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\AndyPilo\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.0.pr1\jackson-databind-2.10.0.pr1.jar;C:\Users\AndyPilo\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.0.pr1\jackson-core-2.10.0.pr1.jar;C:\Users\AndyPilo\.m2\repository\org\json\json\20210307\json-20210307.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="America/Havana"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="CU"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_172\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\AndyPilo\AppData\Local\Temp\surefire2794049191918167486\surefirebooter-20240526031752681_3.jar C:\Users\AndyPilo\AppData\Local\Temp\surefire2794049191918167486 2024-05-26T03-17-50_909-jvmRun1 surefire-20240526031752681_1tmp surefire_0-20240526031752681_2tmp"/>
+    <property name="surefire.test.class.path" value="D:\Escuela\tesis\Tesis\aplicacion\proyecto\processedDataApplication\target\test-classes;D:\Escuela\tesis\Tesis\aplicacion\proyecto\processedDataApplication\target\classes;C:\Users\AndyPilo\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar;C:\Users\AndyPilo\.m2\repository\com\google\code\gson\gson\2.11.0\gson-2.11.0.jar;C:\Users\AndyPilo\.m2\repository\com\google\errorprone\error_prone_annotations\2.27.0\error_prone_annotations-2.27.0.jar;C:\Users\AndyPilo\.m2\repository\org\apache\kafka\kafka-streams\3.7.0\kafka-streams-3.7.0.jar;C:\Users\AndyPilo\.m2\repository\org\apache\kafka\kafka-clients\3.7.0\kafka-clients-3.7.0.jar;C:\Users\AndyPilo\.m2\repository\com\github\luben\zstd-jni\1.5.5-6\zstd-jni-1.5.5-6.jar;C:\Users\AndyPilo\.m2\repository\org\lz4\lz4-java\1.8.0\lz4-java-1.8.0.jar;C:\Users\AndyPilo\.m2\repository\org\xerial\snappy\snappy-java\1.1.10.5\snappy-java-1.1.10.5.jar;C:\Users\AndyPilo\.m2\repository\org\rocksdb\rocksdbjni\7.9.2\rocksdbjni-7.9.2.jar;C:\Users\AndyPilo\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\AndyPilo\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.16.0\jackson-annotations-2.16.0.jar;C:\Users\AndyPilo\.m2\repository\org\slf4j\slf4j-log4j12\1.7.30\slf4j-log4j12-1.7.30.jar;C:\Users\AndyPilo\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\AndyPilo\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.0.pr1\jackson-databind-2.10.0.pr1.jar;C:\Users\AndyPilo\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.0.pr1\jackson-core-2.10.0.pr1.jar;C:\Users\AndyPilo\.m2\repository\org\json\json\20210307\json-20210307.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\AndyPilo"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_172\jre"/>
+    <property name="basedir" value="D:\Escuela\tesis\Tesis\aplicacion\proyecto\processedDataApplication"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\AndyPilo\AppData\Local\Temp\surefire2794049191918167486\surefirebooter-20240526031752681_3.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_172\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_172\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_172\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_172\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_172\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_172\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_172\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_172\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_172-b11"/>
+    <property name="user.name" value="AndyPilo"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_172\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\AndyPilo\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\AndyPilo\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_172"/>
+    <property name="user.dir" value="D:\Escuela\tesis\Tesis\aplicacion\proyecto\processedDataApplication"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_172\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Broadcom\Broadcom 802.11 Network Adapter;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Java\jdk1.8.0_172\bin;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Program Files\apache-maven-3.9.6\bin;C:\Program Files\gradle-8.7\bin;C:\Program Files\MongoDB\Server\7.0\bin;C:\Users\AndyPilo\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\AndyPilo\AppData\Local\Programs\Python\Python311\;C:\Users\AndyPilo\AppData\Local\Microsoft\WindowsApps;C:\Users\AndyPilo\AppData\Local\Programs\Microsoft VS Code\bin;C:\kafka_2.13-3.5.1\bin\windows;C:\Users\AndyPilo\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.172-b11"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_172\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="testApp" classname="com.cuaje.edu.cu.AppTest" time="0.009"/>
+</testsuite>
